@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Pools
+  - Entity
+  - Bullet
+  - StatsManager
+  - Analytics
   layers:
   - Default
   - TransparentFX
@@ -13,9 +18,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Analytics
   - 
   - 
   - 
@@ -44,12 +49,15 @@ TagManager:
   - name: Background
     uniqueID: 3450684881
     locked: 0
-  - name: UI
-    uniqueID: 1498899691
-    locked: 0
   - name: Entity
     uniqueID: 1312856341
     locked: 0
   - name: Bullet
     uniqueID: 732159519
+    locked: 0
+  - name: Effect
+    uniqueID: 1701177569
+    locked: 0
+  - name: UI
+    uniqueID: 1498899691
     locked: 0
