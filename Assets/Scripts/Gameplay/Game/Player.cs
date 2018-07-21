@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using EZCameraShake;
 
 public class Player : Entity
 {
@@ -16,6 +17,7 @@ public class Player : Entity
     Timer m_bombTimer = new Timer(5);
     Timer m_lifeTimer = new Timer(10);
     Timer m_superTimer = new Timer(3);
+    Timer m_respawnTimer = new Timer(1.5f);
 
     uint m_killsNeededForSuper = 30;
     uint m_killsDoneForSuper = 0;
@@ -27,7 +29,10 @@ public class Player : Entity
 
     public override void Die()
     {
-        
+        base.Die();
+        CameraShaker.Instance.ShakeOnce(3f, 3f, .1f, 1f);
+        m_lifeTimer.Restart();
+        m_respawnTimer.Restart();
     }
 
     // Use this for initialization
@@ -36,11 +41,22 @@ public class Player : Entity
         base.Start();
 
         m_killsDoneForSuper = m_manager.GetKills();
+        SetLifePoint(GetMaxLifePoint() / 2);
     }
 	
 	protected override void FixedUpdate ()
     {
         base.FixedUpdate();
+
+        if(IsDead())
+        {
+            m_respawnTimer.FixedUpdateTimer();
+            if(m_respawnTimer.IsTimedOut())
+            {
+                SetLifePoint(GetMaxLifePoint() / 2);
+                SetAlive();
+            }
+        }
         
         ManageBomb();
         ManageLife();
@@ -183,5 +199,15 @@ public class Player : Entity
     public void DesactiveSuper()
     {
 
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+        if(enemy)
+        {
+            enemy.Disapear();
+            SetLifePoint(0);
+        }
     }
 }

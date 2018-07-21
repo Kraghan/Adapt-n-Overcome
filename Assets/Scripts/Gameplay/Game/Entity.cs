@@ -16,6 +16,8 @@ public abstract class Entity : MonoBehaviour
     // Unity objects
     private Animator m_animator;
     protected Rigidbody2D m_body;
+    private Collider2D m_collider;
+    private SpriteRenderer[] m_renderers;
 
     static protected Pool s_bulletPool = null;
 
@@ -45,6 +47,10 @@ public abstract class Entity : MonoBehaviour
 
         m_manager = GameObject.FindGameObjectWithTag("StatsManager").GetComponent<StatsManager>();
 
+        m_renderers = GetComponentsInChildren<SpriteRenderer>();
+
+        m_collider = GetComponent<Collider2D>();
+
     }
 	
 	// Update is called once per frame
@@ -66,6 +72,11 @@ public abstract class Entity : MonoBehaviour
     public bool IsFullLife()
     {
         return GetLifePoint() == GetMaxLifePoint();
+    }
+
+    public bool IsDead()
+    {
+        return GetLifePoint() == 0;
     }
 
     public float GetSpeed()
@@ -127,7 +138,18 @@ public abstract class Entity : MonoBehaviour
         }
     }
 
-    abstract public void Die();
+    virtual public void Die()
+    {
+        foreach (SpriteRenderer renderer in m_renderers)
+        {
+            renderer.enabled = false;
+        }
+
+        m_collider.enabled = false;
+
+        if (!CompareTag("Bullet"))
+            m_animator.SetBool("dead", true);
+    }
 
     public bool Shoot()
     {
@@ -143,5 +165,16 @@ public abstract class Entity : MonoBehaviour
         obj.layer = gameObject.layer;
 
         return true;
+    }
+
+    public virtual void SetAlive()
+    {
+        m_collider.enabled = true;
+        foreach (SpriteRenderer renderer in m_renderers)
+        {
+            renderer.enabled = true;
+        }
+        if (!CompareTag("Bullet"))
+            m_animator.SetBool("dead", false);
     }
 }
