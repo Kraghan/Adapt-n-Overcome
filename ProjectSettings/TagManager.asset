@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - StatsManager
   - Analytics
+  - SpriteLoader
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,7 @@ public abstract class Entity : MonoBehaviour
     // Unity objects
     private Animator m_animator;
     protected Rigidbody2D m_body;
-    private Collider2D m_collider;
+    private Collider2D[] m_colliders;
     private SpriteRenderer[] m_renderers;
 
     static protected Pool s_bulletPool = null;
@@ -49,7 +49,7 @@ public abstract class Entity : MonoBehaviour
 
         m_renderers = GetComponentsInChildren<SpriteRenderer>();
 
-        m_collider = GetComponent<Collider2D>();
+        m_colliders = GetComponents<Collider2D>();
 
     }
 	
@@ -145,7 +145,10 @@ public abstract class Entity : MonoBehaviour
             renderer.enabled = false;
         }
 
-        m_collider.enabled = false;
+        foreach (Collider2D collider in m_colliders)
+        {
+            collider.enabled = false;
+        }
 
         if (!CompareTag("Bullet"))
             m_animator.SetBool("dead", true);
@@ -169,7 +172,12 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void SetAlive()
     {
-        m_collider.enabled = true;
+
+        foreach (Collider2D collider in m_colliders)
+        {
+            collider.enabled = true;
+        }
+
         foreach (SpriteRenderer renderer in m_renderers)
         {
             renderer.enabled = true;

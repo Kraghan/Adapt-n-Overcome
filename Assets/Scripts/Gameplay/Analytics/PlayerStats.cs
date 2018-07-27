@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO;
 
-[CreateAssetMenu(fileName = "Player Datas", menuName = "Datas")]
+[CreateAssetMenu(fileName = "Player Datas", menuName = "Player Datas")]
 public class PlayerStats : ScriptableObject
 {
     public string m_playerName = "";
 
     public uint m_levelTried = 0;
     public uint m_levelCompleted = 0;
+    public float m_totalTimePlayed = 0;
 
     public uint m_totalKills = 0;
     public uint m_totalBulletShooted = 0;
@@ -17,6 +19,11 @@ public class PlayerStats : ScriptableObject
     public uint m_totalCashEarned = 0;
     public uint m_totalCashSpent = 0;
     public uint m_maxCombo = 0;
+    public uint m_totalNumberOfHit = 0;
+    public uint m_totalNumberOfDeath = 0;
+
+    public float m_maxTimeElapsedWithoutShooting = 0;
+    public float m_totalTimeElapsedWithoutShooting = 0;
 
     public float m_totalTimeInTopLeft;
     public float m_totalTimeInMiddleLeft;
@@ -27,6 +34,8 @@ public class PlayerStats : ScriptableObject
     public float m_totalTimeInTopRight;
     public float m_totalTimeInMiddleRight;
     public float m_totalTimeInBottomRight;
+
+    public float m_totalTimeNearEnemies;
 
     public LocalisationTrackerPosition m_preferedPosition;
 
@@ -52,6 +61,7 @@ public class PlayerStats : ScriptableObject
         string datas = "Player Name : " + m_playerName + "\n";
         datas += "Levels tried : " + m_levelTried + "\n";
         datas += "Levels completed : " + m_levelCompleted + "\n";
+        datas += "Time played : " + m_totalTimePlayed + "\n";
 
         return datas;
     }
@@ -64,6 +74,10 @@ public class PlayerStats : ScriptableObject
         datas += "Cash : " + m_totalCashEarned + "\n";
         datas += "Cash spent : " + m_totalCashSpent + "\n";
         datas += "Combo : " + m_maxCombo + "\n";
+        datas += "Time near enemies : " + m_totalTimeNearEnemies + "\n";
+
+        datas += "Hits : " + m_totalNumberOfHit + "\n";
+        datas += "Deaths : " + m_totalNumberOfDeath + "\n";
 
         return datas;
     }
@@ -106,6 +120,7 @@ public class PlayerStats : ScriptableObject
         m_playerName = SaveSlot.Extract(stream.ReadLine());
         m_levelTried = uint.Parse(SaveSlot.Extract(stream.ReadLine()));
         m_levelCompleted = uint.Parse(SaveSlot.Extract(stream.ReadLine()));
+        m_totalTimePlayed = float.Parse(SaveSlot.Extract(stream.ReadLine()));
     }
 
     private void LoadGlobalStats(StreamReader stream)
@@ -116,6 +131,10 @@ public class PlayerStats : ScriptableObject
         m_totalCashEarned = uint.Parse(SaveSlot.Extract(stream.ReadLine()));
         m_totalCashSpent = uint.Parse(SaveSlot.Extract(stream.ReadLine()));
         m_maxCombo = uint.Parse(SaveSlot.Extract(stream.ReadLine()));
+        m_totalTimeNearEnemies = float.Parse(SaveSlot.Extract(stream.ReadLine()));
+
+        m_totalNumberOfHit = uint.Parse(SaveSlot.Extract(stream.ReadLine()));
+        m_totalNumberOfDeath = uint.Parse(SaveSlot.Extract(stream.ReadLine()));
     }
 
     private void LoadTracking(StreamReader stream)
@@ -131,4 +150,13 @@ public class PlayerStats : ScriptableObject
         m_totalTimeInBottomRight = float.Parse(SaveSlot.Extract(stream.ReadLine()));
     }
 
+    public void SetPlayerName(InputField field)
+    {
+        m_playerName = field.text.Trim();
+    }
+
+    public float GetAverageTimeBetweenBullets()
+    {
+        return m_totalTimeElapsedWithoutShooting / (float)(m_totalBulletShooted + 1f);
+    }
 }

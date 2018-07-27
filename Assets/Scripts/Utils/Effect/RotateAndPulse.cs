@@ -23,8 +23,11 @@ public class RotateAndPulse : MonoBehaviour
     {
         transform.Rotate(new Vector3(0, 0, m_rotateSpeed * Time.deltaTime));
 
-        float scaleFactor = 1 + Mathf.Lerp(0, m_pulseStrength, Mathf.PingPong(Time.time, m_pulseTime));
+        if(m_pulseTime > 0)
+        {
+            float scaleFactor = 1 + Mathf.Lerp(0, m_pulseStrength, Mathf.PingPong(Time.time, m_pulseTime));
 
-        transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
+            transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
+        }
     }
 }

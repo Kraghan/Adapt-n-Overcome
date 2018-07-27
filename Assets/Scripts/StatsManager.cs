@@ -31,12 +31,38 @@ public class StatsManager : MonoBehaviour
     [SerializeField]
     Slider m_progressionGauge;
 
+    private bool m_timeNearEnemyAlreadyUpdated = false;
+    private float m_timeElapsedSinceLastShoot = 0;
+    
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {
         m_levelStats.Reset();
     }
-	
+
+    private void FixedUpdate()
+    {
+        m_timeNearEnemyAlreadyUpdated = false;
+
+        if(!Input.GetButton("Fire"))
+        {
+            m_timeElapsedSinceLastShoot += Time.fixedDeltaTime;
+            m_levelStats.m_totalTimeElapsedWithoutShooting += Time.fixedDeltaTime;
+        }
+        else
+        {   
+            if(m_levelStats.m_maxTimeElapsedWithoutShooting < m_timeElapsedSinceLastShoot)
+            {
+                m_levelStats.m_maxTimeElapsedWithoutShooting = m_timeElapsedSinceLastShoot;
+            }
+        }
+    }
+
+    public void ForceReset()
+    {
+        m_levelStats.Reset();
+    }
+
     public void AddKill()
     {
         m_levelStats.m_kills++;
@@ -158,6 +184,15 @@ public class StatsManager : MonoBehaviour
             case LocalisationTrackerPosition.TOP_RIGHT:
                 m_levelStats.m_timeInTopRight += Time.fixedDeltaTime;
                 break;
+        }
+    }
+
+    public void AddTimeNearEnemy()
+    {
+        if(!m_timeNearEnemyAlreadyUpdated)
+        {
+            m_levelStats.m_timeNearEnemies += Time.fixedDeltaTime;
+            m_timeNearEnemyAlreadyUpdated = true;
         }
     }
 }

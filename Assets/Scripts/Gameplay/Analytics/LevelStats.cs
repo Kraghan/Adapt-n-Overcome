@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-[CreateAssetMenu(fileName="Level Datas", menuName = "Datas")]
+[CreateAssetMenu(fileName="Level Datas", menuName = "Level Datas")]
 public class LevelStats : ScriptableObject
 {
     // Level global infos
@@ -17,6 +17,11 @@ public class LevelStats : ScriptableObject
     public uint m_cashEarned;
     public uint m_combo;
     public float m_progression;
+    public uint m_numberOfHit;
+    public uint m_numberOfDeath;
+
+    public float m_maxTimeElapsedWithoutShooting;
+    public float m_totalTimeElapsedWithoutShooting;
 
     // Level tracking info
     public float m_timeInTopLeft;
@@ -29,6 +34,8 @@ public class LevelStats : ScriptableObject
     public float m_timeInMiddleRight;
     public float m_timeInBottomRight;
 
+    public float m_timeNearEnemies;
+
     public void Reset()
     {
         m_kills = 0;
@@ -37,6 +44,11 @@ public class LevelStats : ScriptableObject
         m_cashEarned = 0;
         m_combo = 0;
         m_progression = 0;
+        m_numberOfDeath = 0;
+        m_numberOfHit = 0;
+
+        m_maxTimeElapsedWithoutShooting = 0;
+        m_totalTimeElapsedWithoutShooting = 0;
 
         m_timeInTopLeft = 0;
         m_timeInMiddleLeft = 0;
@@ -47,6 +59,8 @@ public class LevelStats : ScriptableObject
         m_timeInTopRight = 0;
         m_timeInMiddleRight = 0;
         m_timeInBottomRight= 0;
+
+        m_timeNearEnemies = 0;
     }
 
     public void Save()
@@ -82,6 +96,11 @@ public class LevelStats : ScriptableObject
         datas += "Cash : " + m_cashEarned + "\n";
         datas += "Combo : " + m_combo + "\n";
         datas += "Progression : " + m_progression + "\n";
+        datas += "Hits : " + m_numberOfHit + "\n";
+        datas += "Death : " + m_numberOfDeath + "\n";
+
+        datas += "Time without shoot : " + m_maxTimeElapsedWithoutShooting;
+        datas += "Total time without shoot : " + m_totalTimeElapsedWithoutShooting;
 
         return datas;
     }
@@ -97,6 +116,8 @@ public class LevelStats : ScriptableObject
         datas += "TR : " + m_timeInTopRight + "\n";
         datas += "MR : " + m_timeInMiddleRight + "\n";
         datas += "BR : " + m_timeInBottomRight + "\n";
+
+        datas += "Time near enemies : " + m_timeNearEnemies + "\n";
 
         return datas;
     }
@@ -135,6 +156,12 @@ public class LevelStats : ScriptableObject
         m_combo = uint.Parse(SaveSlot.Extract(stream.ReadLine()));
         m_progression = float.Parse(SaveSlot.Extract(stream.ReadLine()));
 
+        m_numberOfHit = uint.Parse(SaveSlot.Extract(stream.ReadLine()));
+        m_numberOfDeath = uint.Parse(SaveSlot.Extract(stream.ReadLine()));
+
+        m_maxTimeElapsedWithoutShooting = float.Parse(SaveSlot.Extract(stream.ReadLine()));
+        m_totalTimeElapsedWithoutShooting = float.Parse(SaveSlot.Extract(stream.ReadLine()));
+
     }
 
     private void LoadLevelTracking(StreamReader stream)
@@ -148,5 +175,7 @@ public class LevelStats : ScriptableObject
         m_timeInTopRight = float.Parse(SaveSlot.Extract(stream.ReadLine()));
         m_timeInMiddleRight = float.Parse(SaveSlot.Extract(stream.ReadLine()));
         m_timeInBottomRight = float.Parse(SaveSlot.Extract(stream.ReadLine()));
+
+        m_timeNearEnemies = float.Parse(SaveSlot.Extract(stream.ReadLine()));
     }
 }

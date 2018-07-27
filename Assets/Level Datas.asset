@@ -11,9 +11,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b233e98de5034e4991c1a07fcfefa04, type: 3}
   m_Name: Level Datas
   m_EditorClassIdentifier: 
-  m_kills: 0
-  m_bulletShooted: 0
-  m_bulletEffective: 0
-  m_cashEarned: 0
+  m_levelID: 0
+  m_faction: 0
+  m_kills: 1
+  m_bulletShooted: 1
+  m_bulletEffective: 1
+  m_cashEarned: 100
   m_combo: 0
   m_progression: 0
+  m_timeInTopLeft: 0
+  m_timeInMiddleLeft: 0
+  m_timeInBottomLeft: 0
+  m_timeInTopMiddle: 0
+  m_timeInMiddleMiddle: 0.7849004
+  m_timeInBottomMiddle: 9.26844
+  m_timeInTopRight: 0
+  m_timeInMiddleRight: 0
+  m_timeInBottomRight: 0
+  m_timeNearEnemies: 0.0167

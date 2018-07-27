@@ -35,6 +35,9 @@ public class Enemy : Entity
 
     protected override void FixedUpdate()
     {
+        if (IsDead())
+            return;
+
         base.FixedUpdate();
 
         if(m_movementType == MovementType.PATH)
@@ -80,6 +83,8 @@ public class Enemy : Entity
     {
         base.Die();
         m_manager.AddKill();
+
+        m_manager.AddCash(GetCost());
 
         if (m_particles)
         {
@@ -131,5 +136,18 @@ public class Enemy : Entity
         base.SetAlive();
 
         m_particles.gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            m_manager.AddTimeNearEnemy();
+        }
+    }
+
+    public uint GetCost()
+    {
+        return 100;
     }
 }

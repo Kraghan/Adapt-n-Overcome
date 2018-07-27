@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df0f372cf060266498505d0ea37a5c29, type: 3}
+  m_Name: Player Datas
+  m_EditorClassIdentifier: 
+  m_playerName: 
+  m_levelTried: 0
+  m_levelCompleted: 0
+  m_totalTimePlayed: 0
+  m_totalKills: 0
+  m_totalBulletShooted: 0
+  m_totalBulletEffective: 0
+  m_totalCashEarned: 0
+  m_totalCashSpent: 0
+  m_maxCombo: 0
+  m_totalTimeInTopLeft: 0
+  m_totalTimeInMiddleLeft: 0
+  m_totalTimeInBottomLeft: 0
+  m_totalTimeInTopMiddle: 0
+  m_totalTimeInMiddleMiddle: 0
+  m_totalTimeInBottomMiddle: 0
+  m_totalTimeInTopRight: 0
+  m_totalTimeInMiddleRight: 0
+  m_totalTimeInBottomRight: 0
+  m_totalTimeNearEnemies: 0
+  m_preferedPosition: 0

@@ -3,18 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class SaveSlot : MonoBehaviour {
-
+public class SaveSlot : MonoBehaviour
+{
     public static string s_currentSlot = "";
 
     [SerializeField]
     private uint m_slotNumber = 0;
-
-	public void Load()
-    {
-        s_currentSlot = m_slotNumber.ToString();
-
-    }
+    [SerializeField]
+    private ObjectsToSave m_objectsToSave;
 
     public void Erase()
     {
@@ -37,14 +33,19 @@ public class SaveSlot : MonoBehaviour {
         }
     }
 
+    public static string GetSavesPath()
+    {
+        return Application.persistentDataPath + "/Saves/";
+    }
+
     public string GetSlotPath()
     {
-        return Application.persistentDataPath + "/Save " + m_slotNumber;
+        return GetSavesPath() + "Save " + m_slotNumber;
     }
 
     public static string GetCurrentSlotPath()
     {
-        return Application.persistentDataPath + "/Save " + s_currentSlot;
+        return GetSavesPath() + "Save " + s_currentSlot;
     }
 
     public static string Extract(string baseString)
@@ -74,5 +75,38 @@ public class SaveSlot : MonoBehaviour {
         }
 
         return extracted;
+    }
+
+    public bool IsUsed()
+    {
+        if (!Directory.Exists(GetSavesPath()))
+            Directory.CreateDirectory(GetSavesPath());
+
+        if (!Directory.Exists(GetSlotPath()))
+            Directory.CreateDirectory(GetSlotPath());
+
+        DirectoryInfo info = new DirectoryInfo(GetSlotPath());
+        FileInfo[] fileInfo = info.GetFiles();
+        return fileInfo.Length != 0;
+    }
+
+    public void SetAsCurrentSlot()
+    {
+        s_currentSlot = m_slotNumber.ToString();
+    }
+
+    public void CreateCurrentSlot()
+    {
+        m_objectsToSave.CreateDatas();
+    }
+    
+    public void LoadCurrentSlot()
+    {
+        m_objectsToSave.Load();
+    }
+
+    public void SaveCurrentSlot()
+    {
+        m_objectsToSave.Save();
     }
 }

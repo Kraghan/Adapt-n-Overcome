@@ -14,6 +14,9 @@ public class Player : Entity
     [SerializeField]
     Slider m_superSlider;
 
+    [SerializeField]
+    Vector3 m_respawnPosition;
+
     Timer m_bombTimer = new Timer(5);
     Timer m_lifeTimer = new Timer(10);
     Timer m_superTimer = new Timer(3);
@@ -39,7 +42,7 @@ public class Player : Entity
     protected override void Start ()
     {
         base.Start();
-
+        
         m_killsDoneForSuper = m_manager.GetKills();
         SetLifePoint(GetMaxLifePoint() / 2);
     }
@@ -209,5 +212,12 @@ public class Player : Entity
             enemy.Disapear();
             SetLifePoint(0);
         }
+    }
+
+    public override void SetAlive()
+    {
+        base.SetAlive();
+
+        transform.position = m_respawnPosition;
     }
 }

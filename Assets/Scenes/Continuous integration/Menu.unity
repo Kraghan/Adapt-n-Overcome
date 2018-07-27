@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 41113410}
   - component: {fileID: 41113409}
   - component: {fileID: 41113408}
+  - component: {fileID: 41113412}
   m_Layer: 0
   m_Name: Slot 4
   m_TagString: Untagged
@@ -339,6 +340,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 41113412}
+        m_MethodName: SetAsCurrentSlot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 938584048}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &41113409
@@ -393,6 +416,19 @@ RectTransform:
   m_AnchoredPosition: {x: 430, y: -280}
   m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &41113412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 41113407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46564a02bd6a26499b8a99fc30395b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_slotNumber: 3
+  m_objectsToSave: {fileID: 11400000, guid: a835e890562b8fd408efac30193e92d1, type: 2}
 --- !u!1 &254647326
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,13 +717,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 2002736009}
+        m_MethodName: LoadCurrentSlot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1285906087}
+        m_MethodName: LoadLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -938,6 +985,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 510654615}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &365892180
@@ -1173,6 +1231,8 @@ GameObject:
   - component: {fileID: 443520776}
   - component: {fileID: 443520775}
   - component: {fileID: 443520774}
+  - component: {fileID: 443520779}
+  - component: {fileID: 443520778}
   m_Layer: 0
   m_Name: Slot 2
   m_TagString: Untagged
@@ -1274,6 +1334,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 443520779}
+        m_MethodName: SetAsCurrentSlot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 510654615}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &443520775
@@ -1328,6 +1410,32 @@ RectTransform:
   m_AnchoredPosition: {x: 430, y: 152.99998}
   m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &443520778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 443520773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3da80e2ba66d7641a679a9b7b0a79a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_checkAllSaves: 0
+  m_slotsMenu: {fileID: 0}
+--- !u!114 &443520779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 443520773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46564a02bd6a26499b8a99fc30395b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_slotNumber: 1
+  m_objectsToSave: {fileID: 11400000, guid: a835e890562b8fd408efac30193e92d1, type: 2}
 --- !u!1 &475665066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2337,6 +2445,8 @@ GameObject:
   - component: {fileID: 1011618815}
   - component: {fileID: 1011618814}
   - component: {fileID: 1011618813}
+  - component: {fileID: 1011618818}
+  - component: {fileID: 1011618817}
   m_Layer: 0
   m_Name: Slot 4
   m_TagString: Untagged
@@ -2438,6 +2548,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 443520779}
+        m_MethodName: SetAsCurrentSlot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 510654615}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1011618814
@@ -2492,6 +2624,32 @@ RectTransform:
   m_AnchoredPosition: {x: 430, y: -280}
   m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1011618817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1011618812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3da80e2ba66d7641a679a9b7b0a79a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_checkAllSaves: 0
+  m_slotsMenu: {fileID: 0}
+--- !u!114 &1011618818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1011618812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46564a02bd6a26499b8a99fc30395b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_slotNumber: 3
+  m_objectsToSave: {fileID: 11400000, guid: a835e890562b8fd408efac30193e92d1, type: 2}
 --- !u!1 &1014786327
 GameObject:
   m_ObjectHideFlags: 0
@@ -2657,6 +2815,8 @@ GameObject:
   - component: {fileID: 1110408110}
   - component: {fileID: 1110408109}
   - component: {fileID: 1110408108}
+  - component: {fileID: 1110408113}
+  - component: {fileID: 1110408112}
   m_Layer: 0
   m_Name: Slot 3
   m_TagString: Untagged
@@ -2758,6 +2918,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 443520779}
+        m_MethodName: SetAsCurrentSlot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 510654615}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1110408109
@@ -2812,6 +2994,32 @@ RectTransform:
   m_AnchoredPosition: {x: -430, y: -280}
   m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1110408112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1110408107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3da80e2ba66d7641a679a9b7b0a79a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_checkAllSaves: 0
+  m_slotsMenu: {fileID: 0}
+--- !u!114 &1110408113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1110408107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46564a02bd6a26499b8a99fc30395b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_slotNumber: 2
+  m_objectsToSave: {fileID: 11400000, guid: a835e890562b8fd408efac30193e92d1, type: 2}
 --- !u!1 &1117563506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2979,6 +3187,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 938584048}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -3370,6 +3589,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1281516836}
+--- !u!1 &1285906086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1285906088}
+  - component: {fileID: 1285906087}
+  m_Layer: 0
+  m_Name: LevelLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1285906087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1285906086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12cbfcccda05395488d47e198e54d9ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1285906088
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1285906086}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1362322512
 GameObject:
   m_ObjectHideFlags: 0
@@ -3600,6 +3859,7 @@ GameObject:
   - component: {fileID: 1386152528}
   - component: {fileID: 1386152527}
   - component: {fileID: 1386152526}
+  - component: {fileID: 1386152530}
   m_Layer: 0
   m_Name: Slot 1
   m_TagString: Untagged
@@ -3701,6 +3961,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 41113412}
+        m_MethodName: SetAsCurrentSlot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 938584048}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1386152527
@@ -3755,6 +4037,19 @@ RectTransform:
   m_AnchoredPosition: {x: -430, y: 153}
   m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1386152530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1386152525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46564a02bd6a26499b8a99fc30395b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_slotNumber: 0
+  m_objectsToSave: {fileID: 11400000, guid: a835e890562b8fd408efac30193e92d1, type: 2}
 --- !u!1 &1397279687
 GameObject:
   m_ObjectHideFlags: 0
@@ -3766,6 +4061,7 @@ GameObject:
   - component: {fileID: 1397279690}
   - component: {fileID: 1397279689}
   - component: {fileID: 1397279688}
+  - component: {fileID: 1397279692}
   m_Layer: 0
   m_Name: Slot 3
   m_TagString: Untagged
@@ -3867,6 +4163,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 41113412}
+        m_MethodName: SetAsCurrentSlot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 938584048}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1397279689
@@ -3921,6 +4239,19 @@ RectTransform:
   m_AnchoredPosition: {x: -430, y: -280}
   m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1397279692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1397279687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46564a02bd6a26499b8a99fc30395b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_slotNumber: 2
+  m_objectsToSave: {fileID: 11400000, guid: a835e890562b8fd408efac30193e92d1, type: 2}
 --- !u!1 &1399788315
 GameObject:
   m_ObjectHideFlags: 0
@@ -4170,13 +4501,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 1386152530}
+        m_MethodName: CreateCurrentSlot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1285906087}
+        m_MethodName: LoadLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4515,6 +4857,7 @@ GameObject:
   - component: {fileID: 1816920298}
   - component: {fileID: 1816920297}
   - component: {fileID: 1816920296}
+  - component: {fileID: 1816920299}
   m_Layer: 0
   m_Name: Load Button
   m_TagString: Untagged
@@ -4641,6 +4984,19 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 437031468}
   m_GameObject: {fileID: 1816920294}
+--- !u!114 &1816920299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1816920294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3da80e2ba66d7641a679a9b7b0a79a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_checkAllSaves: 1
+  m_slotsMenu: {fileID: 920446672}
 --- !u!1 &1825430970
 GameObject:
   m_ObjectHideFlags: 0
@@ -4881,6 +5237,7 @@ GameObject:
   - component: {fileID: 1896544236}
   - component: {fileID: 1896544235}
   - component: {fileID: 1896544234}
+  - component: {fileID: 1896544238}
   m_Layer: 0
   m_Name: Slot 2
   m_TagString: Untagged
@@ -4982,6 +5339,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 41113412}
+        m_MethodName: SetAsCurrentSlot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 938584048}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1896544235
@@ -5036,6 +5415,19 @@ RectTransform:
   m_AnchoredPosition: {x: 430, y: 152.99998}
   m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1896544238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1896544233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46564a02bd6a26499b8a99fc30395b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_slotNumber: 1
+  m_objectsToSave: {fileID: 11400000, guid: a835e890562b8fd408efac30193e92d1, type: 2}
 --- !u!1 &1902485663
 GameObject:
   m_ObjectHideFlags: 0
@@ -5351,6 +5743,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: e33659eec5bb5614e9f07e351c7f2e26, type: 2}
+        m_MethodName: SetPlayerName
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1362322514}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1945626431
@@ -5483,6 +5886,8 @@ GameObject:
   - component: {fileID: 2002736006}
   - component: {fileID: 2002736005}
   - component: {fileID: 2002736004}
+  - component: {fileID: 2002736009}
+  - component: {fileID: 2002736008}
   m_Layer: 0
   m_Name: Slot 1
   m_TagString: Untagged
@@ -5584,6 +5989,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 443520779}
+        m_MethodName: SetAsCurrentSlot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 510654615}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2002736005
@@ -5638,6 +6065,32 @@ RectTransform:
   m_AnchoredPosition: {x: -430, y: 153}
   m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2002736008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2002736003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3da80e2ba66d7641a679a9b7b0a79a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_checkAllSaves: 0
+  m_slotsMenu: {fileID: 0}
+--- !u!114 &2002736009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2002736003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46564a02bd6a26499b8a99fc30395b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_slotNumber: 0
+  m_objectsToSave: {fileID: 11400000, guid: a835e890562b8fd408efac30193e92d1, type: 2}
 --- !u!1 &2036170828
 GameObject:
   m_ObjectHideFlags: 0

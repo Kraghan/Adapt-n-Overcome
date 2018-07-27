@@ -31,4 +31,14 @@ public class FactionHelper
 
         return Factions.NEUTRAL;
     }
+
+    public static Color GetFactionColor(Factions faction)
+    {
+        switch (faction)
+        {
+            case Factions.NEUTRAL: 
+                    return new Color(255, 255, 255, 210);
+        }
+        return new Color(255, 255, 255, 210);
+    }
 }
